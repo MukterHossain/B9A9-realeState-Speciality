@@ -14,7 +14,7 @@ const EstateCard = () => {
     return (
         <div className="my-20">
             <div className="text-center">
-                <h2 className="text-4xl font-bold">Estate Section : {estates.length}</h2>
+                <h2 className="text-4xl font-bold">Estate Section </h2>
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 justify-center gap-6">
                 {

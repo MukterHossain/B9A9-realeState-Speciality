@@ -7,11 +7,13 @@ import Register from "../component/Register";
 import UpdateProfile from "../Pages/UpdateProfile";
 import UserProfile from "../Pages/UserProfile";
 import EstateDetails from "../component/EstateDetails";
+import ErrorPage from "../Pages/ErrorPage";
 
   export const router = createBrowserRouter([
     {
       path: "/",
       element: <Root></Root>,
+      errorElement:<ErrorPage></ErrorPage>,
       children: [
         {
             path: '/',
