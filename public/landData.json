@@ -9,7 +9,7 @@
       "area": "1312000 sq fit",
       "location": "Downtown Cityville",
       "facilities": ["Emergency Room", "Maternity Ward", "Cafeteria"],
-      "image": "https://example.com/images/sunrise-hospital.jpg"
+      "image": "https://i.ibb.co/RQ9xqsJ/hospital.jpg "
     },
     {
       "id": 2,
@@ -21,7 +21,7 @@
       "area": "850000 sq fit",
       "location": "Suburb Heights",
       "facilities": ["Sports Complex", "Science Labs", "Auditorium"],
-      "image": "https://example.com/images/greenwood-school.jpg"
+      "image": "https://i.ibb.co/7Wz7Z2z/school.jpg"
     },
     {
       "id": 3,
@@ -33,7 +33,7 @@
       "area": "120000 sq fit",
       "location": "Old Town District",
       "facilities": ["Community Hall", "Library", "Prayer Hall"],
-      "image": "https://example.com/images/grand-mosque.jpg"
+      "image": "https://i.ibb.co/V2JRhyS/mosque.jpg"
     },
     {
       "id": 4,
@@ -45,7 +45,7 @@
       "area": "620100 sq fit",
       "location": "City Center",
       "facilities": ["Ticket Counters", "Waiting Area", "Restrooms"],
-      "image": "https://example.com/images/bus-terminal.jpg"
+      "image": "https://i.ibb.co/SsCMw5W/tarminal.jpg"
     },
     {
       "id": 5,
@@ -57,7 +57,7 @@
       "area": "220000 sq fit",
       "location": "Riverside District",
       "facilities": ["Exhibition Halls", "Meeting Rooms", "Banquet Facilities"],
-      "image": "https://example.com/images/convention-center.jpg"
+      "image": "https://i.ibb.co/NCVmvCC/convention.jpg"
     },
     {
       "id": 6,
@@ -69,7 +69,7 @@
       "area": "86000 sq fit",
       "location": "Cultural Quarter",
       "facilities": ["Exhibition Space", "Workshop Areas", "Café"],
-      "image": "https://example.com/images/modern-art-gallery.jpg"
+      "image": "https://i.ibb.co/2PnsPYW/art.jpg"
     },
     {
       "id": 7,
@@ -81,7 +81,7 @@
       "area": "68000 sq fit",
       "location": "Science Park",
       "facilities": ["Exhibits", "Hands-on Labs", "Planetarium"],
-      "image": "https://example.com/images/science-museum.jpg"
+      "image": "https://i.ibb.co/fNGYFcX/science.jpg"
     },
     {
       "id": 8,
@@ -93,7 +93,7 @@
       "area": "636000 sq fit",
       "location": "City Center",
       "facilities": ["Walking Trails", "Playgrounds", "Picnic Areas"],
-      "image": "https://example.com/images/central-park.jpg"
+      "image": "https://i.ibb.co/c8rnpYd/park.jpg"
     },
     {
       "id": 9,
@@ -105,6 +105,6 @@
       "area": "286000 sq fit",
       "location": "Sub District",
       "facilities": ["Walking Trails", "Playgrounds", "Picnic Areas"],
-      "image": "https://example.com/images/central-park.jpg"
+      "image": "https://i.ibb.co/dWPVmyd/museum.jpg"
     }
   ]
