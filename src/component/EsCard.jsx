@@ -1,4 +1,4 @@
-
+import PropTypes from 'prop-types';
 
 const EsCard = ({ cards }) => {
     const { image, segment_name, estate_title, description, price, status, area, location, facilities } = cards;
@@ -19,5 +19,8 @@ const EsCard = ({ cards }) => {
         </div>
     );
 };
+EsCard.propTypes ={
+    cards: PropTypes.node
+}
 
 export default EsCard;
