@@ -1,0 +1,110 @@
+[
+    {
+      "id": 1,
+      "segment_name": "Hospital",
+      "estate_title": "Sunrise Health Medical Center",
+      "description": "A state-of-the-art healthcare facility offering comprehensive services including emergency, maternity, and surgical services.",
+      "price": "Not for sale",
+      "status": "Operational",
+      "area": "1312000 sq fit",
+      "location": "Downtown Cityville",
+      "facilities": ["Emergency Room", "Maternity Ward", "Cafeteria"],
+      "image": "https://example.com/images/sunrise-hospital.jpg"
+    },
+    {
+      "id": 2,
+      "segment_name": "School",
+      "estate_title": "Greenwood International School",
+      "description": "Offering a diverse curriculum with a focus on holistic education and extracurricular excellence.",
+      "price": "Not for sale",
+      "status": "Operational",
+      "area": "850000 sq fit",
+      "location": "Suburb Heights",
+      "facilities": ["Sports Complex", "Science Labs", "Auditorium"],
+      "image": "https://example.com/images/greenwood-school.jpg"
+    },
+    {
+      "id": 3,
+      "segment_name": "Religious Facility",
+      "estate_title": "Grand City Mosque",
+      "description": "A central place of worship and community gathering, featuring stunning architecture.",
+      "price": "Not for sale",
+      "status": "Operational",
+      "area": "120000 sq fit",
+      "location": "Old Town District",
+      "facilities": ["Community Hall", "Library", "Prayer Hall"],
+      "image": "https://example.com/images/grand-mosque.jpg"
+    },
+    {
+      "id": 4,
+      "segment_name": "Transportation Terminal",
+      "estate_title": "Central Bus Terminal",
+      "description": "The hub of city's bus network, facilitating local and long-distance travel.",
+      "price": "Not for sale",
+      "status": "Operational",
+      "area": "620100 sq fit",
+      "location": "City Center",
+      "facilities": ["Ticket Counters", "Waiting Area", "Restrooms"],
+      "image": "https://example.com/images/bus-terminal.jpg"
+    },
+    {
+      "id": 5,
+      "segment_name": "Convention Center",
+      "estate_title": "Riverfront Convention Center",
+      "description": "A premier venue for conferences, exhibitions, and events, overlooking the scenic riverfront.",
+      "price": "Not for sale",
+      "status": "Operational",
+      "area": "220000 sq fit",
+      "location": "Riverside District",
+      "facilities": ["Exhibition Halls", "Meeting Rooms", "Banquet Facilities"],
+      "image": "https://example.com/images/convention-center.jpg"
+    },
+    {
+      "id": 6,
+      "segment_name": "Art Gallery",
+      "estate_title": "Modern Art Gallery",
+      "description": "Featuring contemporary art exhibitions from renowned and emerging artists.",
+      "price": "Not for sale",
+      "status": "Operational",
+      "area": "86000 sq fit",
+      "location": "Cultural Quarter",
+      "facilities": ["Exhibition Space", "Workshop Areas", "Café"],
+      "image": "https://example.com/images/modern-art-gallery.jpg"
+    },
+    {
+      "id": 7,
+      "segment_name": "Science Museum",
+      "estate_title": "Discovery Science Museum",
+      "description": "An interactive museum showcasing scientific discoveries and technological advancements.",
+      "price": "Not for sale",
+      "status": "Operational",
+      "area": "68000 sq fit",
+      "location": "Science Park",
+      "facilities": ["Exhibits", "Hands-on Labs", "Planetarium"],
+      "image": "https://example.com/images/science-museum.jpg"
+    },
+    {
+      "id": 8,
+      "segment_name": "Park",
+      "estate_title": "Central Park",
+      "description": "A sprawling urban park offering recreational activities and green spaces for relaxation.",
+      "price": "Not for sale",
+      "status": "Operational",
+      "area": "636000 sq fit",
+      "location": "City Center",
+      "facilities": ["Walking Trails", "Playgrounds", "Picnic Areas"],
+      "image": "https://example.com/images/central-park.jpg"
+    },
+    {
+      "id": 9,
+      "segment_name": "Museum",
+      "estate_title": "Folk Museum",
+      "description": "A sprawling urban park offering recreational activities and green spaces for relaxation.",
+      "price": "Not for sale",
+      "status": "Operational",
+      "area": "286000 sq fit",
+      "location": "Sub District",
+      "facilities": ["Walking Trails", "Playgrounds", "Picnic Areas"],
+      "image": "https://example.com/images/central-park.jpg"
+    }
+  ]
