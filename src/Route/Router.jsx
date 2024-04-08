@@ -6,6 +6,7 @@ import Login from "../component/Login";
 import Register from "../component/Register";
 import UpdateProfile from "../Pages/UpdateProfile";
 import UserProfile from "../Pages/UserProfile";
+import EstateDetails from "../component/EstateDetails";
 
   export const router = createBrowserRouter([
     {
@@ -31,6 +32,10 @@ import UserProfile from "../Pages/UserProfile";
         {
           path: '/userprofile',
           element: <UserProfile></UserProfile>
+        },
+        {
+          path:'/details',
+          element: <EstateDetails></EstateDetails>
         }
       ]
     },
