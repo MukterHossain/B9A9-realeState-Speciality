@@ -2,6 +2,7 @@ import EstateCard from "../component/EstateCard";
 import Slider from "../component/Slider";
 import {useLoaderData} from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { Helmet} from 'react-helmet-async'
 
 
 const Home = () => {
@@ -9,6 +10,9 @@ const Home = () => {
     console.log(landData)
     return (
         <div>
+            <Helmet>
+                <title>SH assets LTD || Home</title>
+            </Helmet>
             <Slider></Slider>
             <EstateCard landData={landData}></EstateCard>
         </div>
