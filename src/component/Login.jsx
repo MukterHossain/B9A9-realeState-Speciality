@@ -1,33 +1,45 @@
 import { useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
+import { useForm } from "react-hook-form"
 
 
 const Login = () => {
-    const {signIn} = useContext(AuthContext);
+    const {signIn, googleLogin,githubLogin} = useContext(AuthContext);
     const location = useLocation();
     const navigate = useNavigate();
     console.log('login' , location)
- 
 
-    const handleLogin = e =>{
-        e.preventDefault();
-        const form = new FormData(e.currentTarget);
-        const email = form.get('email');
-        const password = form.get('password');
-        console.log(email, password)
+    const {register,handleSubmit,formState: { errors }} = useForm();
+    const onSubmit= data => {
+        const {email, password} = data;
         signIn(email, password)
-        .then(result =>{
+        .then(result => {
             console.log(result.user)
-            // navigate after login
             navigate(location?.state ? location.state : '/')
         })
         .catch(error =>{
-            console.log(error)
+            console.error(error)
         })
+      }
+ 
 
-
-    }
+    // const handleLogin = e =>{
+    //     e.preventDefault();
+    //     const form = new FormData(e.currentTarget);
+    //     const email = form.get('email');
+    //     const password = form.get('password');
+    //     console.log(email, password)
+    //     signIn(email, password)
+    //     .then(result =>{
+    //         console.log(result.user)
+    //         // navigate after login
+    //         navigate(location?.state ? location.state : '/')
+    //     })
+    //     .catch(error =>{
+    //         console.log(error)
+    //     })
+    // }
 
 
     return (
@@ -36,18 +48,20 @@ const Login = () => {
                 <h1 className="text-5xl font-bold">Login now!</h1>
             </div>
             <div className="card shrink-0 mx-auto w-1/2 shadow-2xl bg-base-100 pb-10">
-                <form onSubmit={handleLogin} className="card-body">
+                <form onSubmit={handleSubmit(onSubmit)} className="card-body">
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">Email</span>
                         </label>
-                        <input type="email" name="email" placeholder="email" className="input input-bordered" required />
+                        <input type="email" name="email" placeholder="email" className="input input-bordered" {...register("email", { required: true })}/>
+                        {errors.email && <span className="text-red-600">This field is required</span>}
                     </div>
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">Password</span>
                         </label>
-                        <input type="password" name="password" placeholder="password" className="input input-bordered" />
+                        <input type="password" name="password" placeholder="password" className="input input-bordered" {...register("password", { required: true })}/>
+                        {errors.password && <span className="text-red-600">This field is required</span>}
                         <label className="label">
                             <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                         </label>
@@ -62,8 +76,8 @@ const Login = () => {
                 <div>
                     <div className="divider mx-10">continue with</div>
                     <div className="flex justify-around">
-                        <button className="btn btn-primary  btn-outline">Google</button>
-                        <button className="btn btn-secondary  btn-outline">Github</button>
+                        <button onClick={()=>googleLogin()} className="btn btn-primary  btn-outline">Google</button>
+                        <button onClick={() =>githubLogin()} className="btn btn-secondary  btn-outline">Github</button>
                     </div>
                 </div>
             </div>

@@ -1,33 +1,42 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
+import { useForm } from "react-hook-form"
 
 
 const Register = () => {
     const { createUser } = useContext(AuthContext);
 
 
-    const handleRegister = e => {
-        e.preventDefault();
-        console.log(e.currentTarget)
-        const form = new FormData(e.currentTarget);
-        const name = form.get('name')
-        const email = form.get('email')
-        const password = form.get('password')
-        const photo = form.get('photoURL')
-        console.log(name, email, password, photo)
-        
-        //crete User 
+    const {register,handleSubmit,formState: { errors }} = useForm();
+    const onSubmit= data => {
+        const {email, password} = data;
         createUser(email, password)
-            .then(result => {
-                console.log(result.user)
-            })
-            .catch(error => {
-                console.error(error)
-            })
+        .then(result => {
+            console.log(result.user)
+        })
+        .catch(error =>{
+            console.error(error)
+        })
+      }
 
+    // const handleRegister = e => {
+    //     e.preventDefault();
+    //     const form = new FormData(e.currentTarget);
+    //     const name = form.get('name')
+    //     const email = form.get('email')
+    //     const password = form.get('password')
+    //     const photo = form.get('photoURL')
 
-    }
+    //     //crete User 
+    //     createUser(email, password)
+    //         .then(result => {
+    //             console.log(result.user)
+    //         })
+    //         .catch(error => {
+    //             console.error(error)
+    //         })
+    // }
 
 
 
@@ -37,30 +46,34 @@ const Register = () => {
                 <h1 className="text-5xl font-bold">Register now!</h1>
             </div>
             <div className="card shrink-0 mx-auto w-1/2 shadow-2xl bg-base-100 pb-10">
-                <form onSubmit={handleRegister} className="card-body">
+                <form onSubmit={handleSubmit(onSubmit)} className="card-body">
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">Name</span>
                         </label>
-                        <input type="text" name="name" placeholder="Name" className="input input-bordered" required />
+                        <input type="text" name="name" placeholder="Name" className="input input-bordered" {...register("name", { required: true })}  />
+                        {errors.name && <span className="text-red-600">This field is required</span>}
                     </div>
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">Email</span>
                         </label>
-                        <input type="email" name="email" placeholder="email" className="input input-bordered" required />
+                        <input type="email" name="email" placeholder="email" className="input input-bordered" {...register("email", { required: true })} />
+                        {errors.email && <span className="text-red-600">This field is required</span>}
                     </div>
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">Photo URL</span>
                         </label>
-                        <input type="text" name="photoURL" placeholder="photoURL" className="input input-bordered" />
+                        <input type="text" name="photoURL" placeholder="photoURL" className="input input-bordered" {...register("photoURL")}/>
+                        {errors.photoURL && <span className="text-red-600">This field is required</span>}
                     </div>
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">Password</span>
                         </label>
-                        <input type="password" name="password" placeholder="password" className="input input-bordered" />
+                        <input type="password" name="password" placeholder="password" className="input input-bordered" {...register("password", { required: true })}/>
+                        {errors.password && <span className="text-red-600">This field is required</span>}
                     </div>
                     <div className="form-control mt-6">
                         <button className="btn btn-primary">Register</button>
