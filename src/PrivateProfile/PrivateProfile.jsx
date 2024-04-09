@@ -16,7 +16,7 @@ const PrivateProfile = ({children}) => {
     }
 
 
-    return <Navigate state={location.pathname} to='/login'></Navigate>
+    return <Navigate state={location?.pathname || '/'} to='/login'></Navigate>
 };
 
 export default PrivateProfile;

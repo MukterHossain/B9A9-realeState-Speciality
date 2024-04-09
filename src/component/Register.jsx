@@ -1,24 +1,28 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 import { useForm } from "react-hook-form"
 
 
 const Register = () => {
-    const { createUser } = useContext(AuthContext);
+    const { createUser, updateUserProfile } = useContext(AuthContext);
 
+    // const location = useLocation();
+    const navigate = useNavigate();
 
-    const {register,handleSubmit,formState: { errors }} = useForm();
-    const onSubmit= data => {
-        const {email, password} = data;
+    const { register, handleSubmit, formState: { errors } } = useForm();
+    const onSubmit = data => {
+        const { email, password, image, fullName } = data;
+
         createUser(email, password)
-        .then(result => {
-            console.log(result.user)
-        })
-        .catch(error =>{
-            console.error(error)
-        })
-      }
+            .then(() => {
+                updateUserProfile(fullName, image)
+                    .then(() => {
+                        navigate('/')
+                        // navigate(location?.state || '/')
+                    });
+            });
+    };
 
     // const handleRegister = e => {
     //     e.preventDefault();
@@ -51,7 +55,7 @@ const Register = () => {
                         <label className="label">
                             <span className="label-text">Name</span>
                         </label>
-                        <input type="text" name="name" placeholder="Name" className="input input-bordered" {...register("name", { required: true })}  />
+                        <input type="text" name="name" placeholder="Name" className="input input-bordered" {...register("name", { required: true })} />
                         {errors.name && <span className="text-red-600">This field is required</span>}
                     </div>
                     <div className="form-control">
@@ -65,14 +69,14 @@ const Register = () => {
                         <label className="label">
                             <span className="label-text">Photo URL</span>
                         </label>
-                        <input type="text" name="photoURL" placeholder="photoURL" className="input input-bordered" {...register("photoURL")}/>
+                        <input type="text" name="photoURL" placeholder="photoURL" className="input input-bordered" {...register("photoURL")} />
                         {errors.photoURL && <span className="text-red-600">This field is required</span>}
                     </div>
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">Password</span>
                         </label>
-                        <input type="password" name="password" placeholder="password" className="input input-bordered" {...register("password", { required: true })}/>
+                        <input type="password" name="password" placeholder="password" className="input input-bordered" {...register("password", { required: true })} />
                         {errors.password && <span className="text-red-600">This field is required</span>}
                     </div>
                     <div className="form-control mt-6">

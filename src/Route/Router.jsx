@@ -22,8 +22,11 @@ import PrivateProfile from "../PrivateProfile/PrivateProfile";
             loader: () =>fetch('/landData.json')
         },
         {
-          path:'/landData/:id',
-          element: <PrivateProfile><EstateDetails></EstateDetails></PrivateProfile>
+          path:'/data/:id',
+          element: <PrivateProfile>
+            <EstateDetails></EstateDetails>
+            </PrivateProfile>,
+           loader: () =>fetch('/landData.json')
         },
         {
           path: '/login',

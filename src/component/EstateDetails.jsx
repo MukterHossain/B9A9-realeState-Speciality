@@ -1,8 +1,14 @@
 import { Helmet } from 'react-helmet-async';
-import {useParams} from 'react-router-dom';
+import {useLoaderData,useParams} from 'react-router-dom';
 
 const EstateDetails = () => {
-    const {id, image, segment_name, estate_title, description, price, status, area, location, facilities } = useParams()
+    const landData = useLoaderData();
+    const {id} = useParams();
+    const idInt = parseInt(id);
+    const data = landData.find(data => data.id === idInt)
+
+    console.log(landData, data)
+    const { image, segment_name, estate_title, description, price, status, area, location, facilities } = data;
     return (
 
         <div>
@@ -12,6 +18,13 @@ const EstateDetails = () => {
             <h2>Estate Details{id}</h2>
             <img src={image} alt="" />
             <p>{segment_name}</p>
+            <p>Title: {estate_title}</p>
+            <p>Description: {description}</p>
+            <p>Price: {price}</p>
+            <p>Status : {status}</p>
+            <p>Area: {area}</p>
+            <p>Location: {location}</p>
+            <p>Facilities: {facilities}</p>
         </div>
     );
 };

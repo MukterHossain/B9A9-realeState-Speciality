@@ -14,32 +14,22 @@ const Login = () => {
     const onSubmit= data => {
         const {email, password} = data;
         signIn(email, password)
-        .then(result => {
-            console.log(result.user)
-            navigate(location?.state ? location.state : '/')
-        })
-        .catch(error =>{
-            console.error(error)
+        .then(result =>{
+            if(result.user){
+                navigate(location?.state || '/')
+            }
         })
       }
  
-
-    // const handleLogin = e =>{
-    //     e.preventDefault();
-    //     const form = new FormData(e.currentTarget);
-    //     const email = form.get('email');
-    //     const password = form.get('password');
-    //     console.log(email, password)
-    //     signIn(email, password)
-    //     .then(result =>{
-    //         console.log(result.user)
-    //         // navigate after login
-    //         navigate(location?.state ? location.state : '/')
-    //     })
-    //     .catch(error =>{
-    //         console.log(error)
-    //     })
-    // }
+    const handleSocietyLogin = societyContainer =>{
+        societyContainer()
+        .then(result =>{
+            if(result.user){
+                navigate(location?.state || '/')
+            }
+            
+        })
+    }
 
 
     return (
@@ -76,8 +66,8 @@ const Login = () => {
                 <div>
                     <div className="divider mx-10">continue with</div>
                     <div className="flex justify-around">
-                        <button onClick={()=>googleLogin()} className="btn btn-primary  btn-outline">Google</button>
-                        <button onClick={() =>githubLogin()} className="btn btn-secondary  btn-outline">Github</button>
+                        <button onClick={()=>handleSocietyLogin(googleLogin)} className="btn btn-primary  btn-outline">Google</button>
+                        <button onClick={() =>handleSocietyLogin(githubLogin)} className="btn btn-secondary  btn-outline">Github</button>
                     </div>
                 </div>
             </div>
