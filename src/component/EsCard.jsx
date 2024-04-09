@@ -1,7 +1,9 @@
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
-const EsCard = ({ cards }) => {
-    const { image, segment_name, estate_title, description, price, status, area, location, facilities } = cards;
+const EsCard = ({ landData}) => {
+    console.log(landData)
+    const {id, image, segment_name, estate_title, description, price, status, area, location, facilities } = landData;
     return (
         <div>
             <div className="card  bg-base-100 shadow-xl ">
@@ -12,7 +14,7 @@ const EsCard = ({ cards }) => {
                     <p> <span className="font-semibold text-lg">Status:</span> {status}</p>
                     <p><span className="font-semibold text-lg">Area:</span> {area}</p>
                     <div className="card-actions justify-end">
-                        <button className="btn btn-primary">View Property</button>
+                        <Link to={`/landData/${id}`}><button  className="btn btn-primary">View Property</button></Link>
                     </div>
                 </div>
             </div>
@@ -20,7 +22,7 @@ const EsCard = ({ cards }) => {
     );
 };
 EsCard.propTypes ={
-    cards: PropTypes.node
+    landData: PropTypes.node
 }
 
 export default EsCard;

@@ -1,14 +1,43 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../Provider/AuthProvider";
 
 
 const Register = () => {
+    const { createUser } = useContext(AuthContext);
+
+
+    const handleRegister = e => {
+        e.preventDefault();
+        console.log(e.currentTarget)
+        const form = new FormData(e.currentTarget);
+        const name = form.get('name')
+        const email = form.get('email')
+        const password = form.get('password')
+        const photo = form.get('photoURL')
+        console.log(name, email, password, photo)
+        
+        //crete User 
+        createUser(email, password)
+            .then(result => {
+                console.log(result.user)
+            })
+            .catch(error => {
+                console.error(error)
+            })
+
+
+    }
+
+
+
     return (
         <div className=" flex-col my-12 ">
             <div className="text-center ">
                 <h1 className="text-5xl font-bold">Register now!</h1>
             </div>
             <div className="card shrink-0 mx-auto w-1/2 shadow-2xl bg-base-100 pb-10">
-                <form className="card-body">
+                <form onSubmit={handleRegister} className="card-body">
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">Name</span>
@@ -25,7 +54,7 @@ const Register = () => {
                         <label className="label">
                             <span className="label-text">Photo URL</span>
                         </label>
-                        <input type="text" name="photoURL" placeholder="photoURL" className="input input-bordered" required />
+                        <input type="text" name="photoURL" placeholder="photoURL" className="input input-bordered" />
                     </div>
                     <div className="form-control">
                         <label className="label">
@@ -40,8 +69,8 @@ const Register = () => {
                 <div>
                     <p className="text-center mt-5">Already have an account? <Link className="text-blue-600 font-bold " to='/login'>Login</Link></p>
                 </div>
-                
-                </div>
+
+            </div>
         </div>
     );
 };

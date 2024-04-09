@@ -8,6 +8,7 @@ import UpdateProfile from "../Pages/UpdateProfile";
 import UserProfile from "../Pages/UserProfile";
 import EstateDetails from "../component/EstateDetails";
 import ErrorPage from "../Pages/ErrorPage";
+import PrivateProfile from "../PrivateProfile/PrivateProfile";
 
   export const router = createBrowserRouter([
     {
@@ -17,7 +18,12 @@ import ErrorPage from "../Pages/ErrorPage";
       children: [
         {
             path: '/',
-            element: <Home></Home>
+            element: <Home></Home>,
+            loader: () =>fetch('/landData.json')
+        },
+        {
+          path:'/landData/:id',
+          element: <PrivateProfile><EstateDetails></EstateDetails></PrivateProfile>
         },
         {
           path: '/login',
@@ -34,10 +40,6 @@ import ErrorPage from "../Pages/ErrorPage";
         {
           path: '/userprofile',
           element: <UserProfile></UserProfile>
-        },
-        {
-          path:'/details',
-          element: <EstateDetails></EstateDetails>
         }
       ]
     },
