@@ -1,9 +1,9 @@
 import { Helmet } from 'react-helmet-async';
-import {useLoaderData,useParams} from 'react-router-dom';
+import { useLoaderData, useParams } from 'react-router-dom';
 
 const EstateDetails = () => {
     const landData = useLoaderData();
-    const {id} = useParams();
+    const { id } = useParams();
     const idInt = parseInt(id);
     const data = landData.find(data => data.id === idInt)
 
@@ -15,16 +15,45 @@ const EstateDetails = () => {
             <Helmet>
                 <title>SH assets LTD || Estate Details</title>
             </Helmet>
-            <h2>Estate Details{id}</h2>
-            <img src={image} alt="" />
-            <p>{segment_name}</p>
-            <p>Title: {estate_title}</p>
-            <p>Description: {description}</p>
-            <p>Price: {price}</p>
-            <p>Status : {status}</p>
-            <p>Area: {area}</p>
-            <p>Location: {location}</p>
-            <p>Facilities: {facilities}</p>
+
+            <div className=" bg-green-100 p-24 rounded-2xl my-12">
+                <div className=" grid grid-cols-1 lg:grid-cols-2  gap-10 ">
+                    <div className=''>
+                        <img className='rounded-xl w-full' src={image} alt="" />
+                    </div>
+                    <div>
+                        <h1 className="text-5xl font-bold">{segment_name}</h1>
+                        <h1 className="text-2xl pt-3 font-semibold "><span className='text-2xl font-bold '>Title:</span>  {estate_title}</h1>
+                        <p className="py-6"><span className='text-xl font-semibold'>Description: </span>  {description}</p>
+
+                        <div className='grid grid-cols-1 md:grid-cols-2  py-3'>
+                            <p><span className='text-xl font-semibold'>Price:</span> {price}</p>
+                            <p><span className='text-xl font-semibold'>Status :</span>  {status}</p>
+                        </div>
+                        <hr />
+
+                        <div className='grid grid-cols-1 md:grid-cols-2 py-3'>
+                            <p><span className='text-xl font-semibold'>Area:</span>  {area}</p>
+                            <p><span className='text-xl font-semibold'>Location:</span>   {location}</p>
+                        </div>
+                        <hr />
+
+                        <div className='grid grid-cols-1 lg:grid-cols-2  gap-10'>
+                        <p className='py-3'><span className='text-xl font-semibold'>Facilities:</span>
+                            {facilities.map(data =>
+                                <ul key={data} className='ml-10'>
+                                    <li>-{data}</li>
+                                </ul>
+                            )}
+                        </p>
+                        <div className='flex items-end justify-end'>
+                        <button className="btn btn-secondary ">{status} Now!</button>
+                        </div>
+                        </div>
+                       
+                    </div>
+                </div>
+            </div>
         </div>
     );
 };
