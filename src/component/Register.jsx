@@ -1,11 +1,16 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 import { useForm } from "react-hook-form"
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 
 const Register = () => {
     const { createUser, updateUserProfile } = useContext(AuthContext);
+    const [registerError, setRegisterError] = useState('')
+    const [registerSuccess, setRegisterSuccess] = useState('')
+    const [showPassword, setShowPassword] = useState(false)
+
 
     // const location = useLocation();
     const navigate = useNavigate();
@@ -14,35 +19,33 @@ const Register = () => {
     const onSubmit = data => {
         const { email, password, image, fullName } = data;
 
+
+        setRegisterError('')
+        setRegisterSuccess('')
+
+        if (password.length < 6) {
+            setRegisterError('Password should be at least 6 characters or longer');
+            return;
+        }
+        // const isValid = /[A-Z]/.test(password) && /[a-z]/.test(password);
+        else if (!/[A-Z]/.test(password))  {
+            setRegisterError('Your password should have at least one uppercase and one lowercase  characters')
+            return;
+        }
+        else if (!/[a-z]/.test(password))  {
+            setRegisterError('Your password should have at least one uppercase and one lowercase  characters')
+            return;
+        }
+
         createUser(email, password)
             .then(() => {
                 updateUserProfile(fullName, image)
+                setRegisterSuccess('you have register successfully ')
                     .then(() => {
                         navigate('/')
-                        // navigate(location?.state || '/')
                     });
             });
     };
-
-    // const handleRegister = e => {
-    //     e.preventDefault();
-    //     const form = new FormData(e.currentTarget);
-    //     const name = form.get('name')
-    //     const email = form.get('email')
-    //     const password = form.get('password')
-    //     const photo = form.get('photoURL')
-
-    //     //crete User 
-    //     createUser(email, password)
-    //         .then(result => {
-    //             console.log(result.user)
-    //         })
-    //         .catch(error => {
-    //             console.error(error)
-    //         })
-    // }
-
-
 
     return (
         <div className=" flex-col my-12 ">
@@ -76,13 +79,25 @@ const Register = () => {
                         <label className="label">
                             <span className="label-text">Password</span>
                         </label>
-                        <input type="password" name="password" placeholder="password" className="input input-bordered" {...register("password", { required: true })} />
+                        <div className="relative">
+                            <input type={showPassword ? "text" : "password"} name="password" placeholder="password" className="input input-bordered w-full" {...register("password", { required: true })} />
+                            <span className="absolute top-4 right-6" onClick={() => setShowPassword(!showPassword)}>
+                                {showPassword ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>}
+                            </span>
+                        </div>
                         {errors.password && <span className="text-red-600">This field is required</span>}
+                        {
+                            registerError && <p className="text-red-600">{registerError}</p>
+                        }
                     </div>
+                    {
+                        registerSuccess && <p className="text-green-600">{registerSuccess}</p>
+                    }
                     <div className="form-control mt-6">
                         <button className="btn btn-primary">Register</button>
                     </div>
                 </form>
+
                 <div>
                     <p className="text-center mt-5">Already have an account? <Link className="text-blue-600 font-bold " to='/login'>Login</Link></p>
                 </div>

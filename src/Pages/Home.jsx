@@ -3,6 +3,9 @@ import Slider from "../component/Slider";
 import {useLoaderData} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { Helmet} from 'react-helmet-async'
+import AOS from 'aos';
+import 'aos/dist/aos.css'; 
+AOS.init();
 
 
 const Home = () => {
@@ -15,6 +18,7 @@ const Home = () => {
             </Helmet>
             <Slider></Slider>
             <EstateCard landData={landData}></EstateCard>
+            
         </div>
     );
 };

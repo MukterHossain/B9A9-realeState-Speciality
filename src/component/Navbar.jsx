@@ -7,23 +7,13 @@ const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
     console.log(user)
 
-    // const handleSignOut = () => {
-    //     logOut(result => {
-    //         console.log(result.user)
-    //     })
-    //         .catch(error => {
-    //             console.log(error)
-    //         })
-    // }
-
-
     const navLinks = <>
-        
-        <NavLink to='/' className={({ isActive }) => isActive ? 'py-1 px-3 rounded-sm  font-bold bg-green-400 text-white' : 'font-bold py-1 px-3 rounded-sm border-2 border-gray-200 '}>Home</NavLink>
-        <NavLink to='/update' className={({ isActive }) => isActive ? 'py-1 px-3 rounded-sm  font-bold bg-green-400 text-white' : 'font-bold py-1 px-3 rounded-sm border-2 border-gray-200 '}>Update Profile</NavLink>
-        <NavLink to='/userprofile' className={({ isActive }) => isActive ? 'py-1 px-3 rounded-sm  font-bold bg-green-400 text-white' : 'font-bold py-1 px-3 rounded-sm border-2 border-gray-200 '}>User Profile</NavLink>
-        <NavLink to='/data/:id' className={({ isActive }) => isActive ? 'py-1 px-3 rounded-sm  font-bold bg-green-400 text-white' : 'font-bold py-1 px-3 rounded-sm border-2 border-gray-200 '}>Estate Details</NavLink>
 
+        <NavLink to='/' className={({ isActive }) => isActive ? 'py-1 px-3 rounded-sm  font-bold bg-green-400 text-white' : 'font-bold py-1 px-3 rounded-sm border-2 border-gray-200 '}>Home</NavLink>
+        <NavLink to='/update' className={({ isActive }) => isActive ? 'py-1 px-3 rounded-sm  font-bold bg-green-400 text-white' : 'font-bold py-1 px-3 rounded-sm border-2 border-gray-200 '}>Update Profile</NavLink>  
+        {
+            user && <NavLink to='/location' className={({ isActive }) => isActive ? 'py-1 px-3 rounded-sm  font-bold bg-green-400 text-white' : 'font-bold py-1 px-3 rounded-sm border-2 border-gray-200 '}>Location</NavLink>
+        }
 
     </>
 
@@ -53,23 +43,27 @@ const Navbar = () => {
                     {
                         user ?
                             <div className="dropdown dropdown-end">
+                                <div className="flex justify-around items-center">
                                 <label tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
                                     <div className="w-10 rounded-full">
                                         <img src={user?.photoURL || "https://i.ibb.co/V2JRhyS/mosque.jpg"} />
                                     </div>
                                 </label>
+
+                                <button onClick={logOut} className="btn bg-green-500 text-white font-semibold">Log Out</button>
+                                </div>
+
+
                                 <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
                                     <li><button className="btn btn-primary">{user?.displayName || 'user name not found'}</button>
                                     </li>
-                                    <li>
-                                        <button onClick={logOut} className="btn btn-primary">Log Out</button>
-                                    </li>
+
                                 </ul>
 
                             </div>
                             :
                             <Link to='/login'>
-                                <button className="btn btn-secondary">Login</button>
+                                <button className="btn bg-green-500 text-white font-semibold">Login</button>
                             </Link>
                     }
 

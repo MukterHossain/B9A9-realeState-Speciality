@@ -8,7 +8,7 @@ const EstateDetails = () => {
     const data = landData.find(data => data.id === idInt)
 
     console.log(landData, data)
-    const { image, segment_name, estate_title, description, price, status, area, location, facilities } = data;
+    const {image, segment_name, estate_title, description, price, status, area, location, facilities } = data;
     return (
 
         <div>
@@ -19,12 +19,13 @@ const EstateDetails = () => {
             <div className=" bg-green-100 p-24 rounded-2xl my-12">
                 <div className=" grid grid-cols-1 lg:grid-cols-2  gap-10 ">
                     <div className=''>
-                        <img className='rounded-xl w-full' src={image} alt="" />
+                        <img data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000" className='rounded-xl w-full' src={image} alt="" />
                     </div>
                     <div>
                         <h1 className="text-5xl font-bold">{segment_name}</h1>
                         <h1 className="text-2xl pt-3 font-semibold "><span className='text-2xl font-bold '>Title:</span>  {estate_title}</h1>
-                        <p className="py-6"><span className='text-xl font-semibold'>Description: </span>  {description}</p>
+                        <p className="pt-6 text-xl font-semibold"><span className=''>Id No : 0</span>  {id}</p>
+                        <p className="pb-6"><span className='text-xl font-semibold'>Description: </span>  {description}</p>
 
                         <div className='grid grid-cols-1 md:grid-cols-2  py-3'>
                             <p><span className='text-xl font-semibold'>Price:</span> {price}</p>
@@ -47,7 +48,7 @@ const EstateDetails = () => {
                             )}
                         </p>
                         <div className='flex items-end justify-end'>
-                        <button className="btn btn-secondary ">{status} Now!</button>
+                        <button className="btn bg-green-500 text-white ">{status} Now!</button>
                         </div>
                         </div>
                        

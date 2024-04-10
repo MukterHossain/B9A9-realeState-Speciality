@@ -5,10 +5,10 @@ import Home from "../Pages/Home";
 import Login from "../component/Login";
 import Register from "../component/Register";
 import UpdateProfile from "../Pages/UpdateProfile";
-import UserProfile from "../Pages/UserProfile";
 import EstateDetails from "../component/EstateDetails";
 import ErrorPage from "../Pages/ErrorPage";
 import PrivateProfile from "../PrivateProfile/PrivateProfile";
+import Location from "../component/Location";
 
   export const router = createBrowserRouter([
     {
@@ -38,12 +38,13 @@ import PrivateProfile from "../PrivateProfile/PrivateProfile";
         },
         {
           path: '/update',
-          element: <UpdateProfile></UpdateProfile>
+          element: <PrivateProfile><UpdateProfile></UpdateProfile></PrivateProfile>
         },
         {
-          path: '/userprofile',
-          element: <UserProfile></UserProfile>
+          path: 'location',
+          element: <PrivateProfile><Location></Location></PrivateProfile>
         }
+ 
       ]
     },
   ]);

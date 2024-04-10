@@ -14,9 +14,7 @@ const EstateCard = ({landData}) => {
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 justify-center gap-6">
                 {landData.map(data=><EsCard key={data.id} data={data}></EsCard>)}
-                {/* {
-                    estates.map(cards => <EsCard key={cards.id} cards={cards}></EsCard>)
-                } */}
+               
             </div>
 
         </div>
