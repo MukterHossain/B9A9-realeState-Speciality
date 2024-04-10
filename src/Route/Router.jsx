@@ -8,7 +8,8 @@ import UpdateProfile from "../Pages/UpdateProfile";
 import EstateDetails from "../component/EstateDetails";
 import ErrorPage from "../Pages/ErrorPage";
 import PrivateProfile from "../PrivateProfile/PrivateProfile";
-import Location from "../component/Location";
+import Contact from "../component/Contact";
+
 
   export const router = createBrowserRouter([
     {
@@ -41,8 +42,8 @@ import Location from "../component/Location";
           element: <PrivateProfile><UpdateProfile></UpdateProfile></PrivateProfile>
         },
         {
-          path: 'location',
-          element: <PrivateProfile><Location></Location></PrivateProfile>
+          path: '/contact',
+          element: <PrivateProfile><Contact></Contact></PrivateProfile>
         }
  
       ]
