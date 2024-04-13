@@ -17,7 +17,7 @@ const Register = () => {
 
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = data => {
-        const { email, password, image, fullName } = data;
+        const { email, password, image, name } = data;
 
 
         setRegisterError('')
@@ -39,7 +39,7 @@ const Register = () => {
 
         createUser(email, password)
             .then(() => {
-                updateUserProfile(fullName, image)
+                updateUserProfile(name, image)
                 setRegisterSuccess('you have register successfully ')
                     .then(() => {
                         navigate('/')
@@ -72,8 +72,8 @@ const Register = () => {
                         <label className="label">
                             <span className="label-text">Photo URL</span>
                         </label>
-                        <input type="text" name="photoURL" placeholder="photoURL" className="input input-bordered" {...register("photoURL")} />
-                        {errors.photoURL && <span className="text-red-600">This field is required</span>}
+                        <input type="text" name="image" placeholder="photoURL" className="input input-bordered" {...register("image")} />
+                        {errors.image && <span className="text-red-600">This field is required</span>}
                     </div>
                     <div className="form-control">
                         <label className="label">

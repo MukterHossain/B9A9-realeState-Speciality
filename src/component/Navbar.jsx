@@ -46,19 +46,12 @@ const Navbar = () => {
                                 <div className="flex justify-around items-center">
                                 <label tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
                                     <div className="w-10 rounded-full">
-                                        <img src={user?.photoURL || "https://i.ibb.co/V2JRhyS/mosque.jpg"} />
+                                        <img title={user?.displayName || 'user name not found'} src={user?.photoURL || "https://i.ibb.co/V2JRhyS/mosque.jpg"} />
                                     </div>
                                 </label>
 
                                 <button onClick={logOut} className="btn bg-green-500 text-white font-semibold">Log Out</button>
                                 </div>
-
-
-                                <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-                                    <li><button className="btn btn-primary">{user?.displayName || 'user name not found'}</button>
-                                    </li>
-
-                                </ul>
 
                             </div>
                             :

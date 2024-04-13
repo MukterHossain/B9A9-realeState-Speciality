@@ -6,7 +6,11 @@ import { BiWorld } from "react-icons/bi";
 import { FaHandPointRight } from "react-icons/fa";
 
 
+
 const Contact = () => {
+
+
+
     return (
         <div>
             <Helmet>
@@ -14,10 +18,10 @@ const Contact = () => {
             </Helmet>
             <div className="mt-12 ">
                 <div className="text-center ">
-                    <h1 className="text-4xl font-bold ">Contact Us</h1>
+                    <h1 className="text-4xl font-bold">Contact Us</h1>
                 </div>
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
-                    <div className=" my-12  py-12  ">
+                <div className="grid grid-cols-1  lg:grid-cols-2  gap-5">
+                    <div className=" my-12  py-12 md:w-2/3 mx-auto lg:w-full">
                         <div className="mx-auto  rounded-2xl shadow-2xl bg-base-100 p-10 ">
                             <div>
                                 <h2 className="text-3xl font-bold py-4 text-green-800 flex items-center "><span><FaHandPointRight size={25}></FaHandPointRight></span> <span className="pl-2">Choose one</span></h2>
@@ -42,7 +46,9 @@ const Contact = () => {
 
                         </div>
                     </div>
-                    <div>
+
+                    
+                    <div className="md:w-2/3 mx-auto lg:w-full">
                         <div className=" flex-col my-12   py-8">
                             <div className="card shrink-0 mx-auto  shadow-2xl bg-base-100 pb-10">
                                 <form className="card-body ">
@@ -72,6 +78,8 @@ const Contact = () => {
                     </div>
                 </div>
             </div>
+
+  
         </div>
     );
 };

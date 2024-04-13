@@ -7,7 +7,7 @@ const EstateDetails = () => {
     const idInt = parseInt(id);
     const data = landData.find(data => data.id === idInt)
 
-    console.log(landData, data)
+    // console.log(landData, data)
     const {image, segment_name, estate_title, description, price, status, area, location, facilities } = data;
     return (
 
@@ -38,13 +38,11 @@ const EstateDetails = () => {
                             <p><span className='text-xl font-semibold'>Location:</span>   {location}</p>
                         </div>
                         <hr />
-
                         <div className='grid grid-cols-1 lg:grid-cols-2  gap-10'>
                         <p className='py-3'><span className='text-xl font-semibold'>Facilities:</span>
                             {facilities.map(data =>
-                                <ul key={data} className='ml-10'>
-                                    <li>-{data}</li>
-                                </ul>
+                            <li key={data} className='ml-10 '>{data}</li>
+                                
                             )}
                         </p>
                         <div className='flex items-end justify-end'>

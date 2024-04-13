@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 
 const EstateCard = ({landData}) => {
-    console.log(landData)
+    // console.log(landData)
 
     
     return (
