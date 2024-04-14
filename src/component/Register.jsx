@@ -3,12 +3,14 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 import { useForm } from "react-hook-form"
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 
 
 const Register = () => {
     const { createUser, updateUserProfile } = useContext(AuthContext);
     const [registerError, setRegisterError] = useState('')
-    const [registerSuccess, setRegisterSuccess] = useState('')
+    // const [registerSuccess, setRegisterSuccess] = useState('')
     const [showPassword, setShowPassword] = useState(false)
 
 
@@ -21,7 +23,7 @@ const Register = () => {
 
 
         setRegisterError('')
-        setRegisterSuccess('')
+        // setRegisterSuccess('')
 
         if (password.length < 6) {
             setRegisterError('Password should be at least 6 characters or longer');
@@ -40,7 +42,8 @@ const Register = () => {
         createUser(email, password)
             .then(() => {
                 updateUserProfile(name, image)
-                setRegisterSuccess('you have register successfully ')
+                // setRegisterSuccess('you have register successfully ')
+                toast('you have register successfully')
                     .then(() => {
                         navigate('/')
                     });
@@ -90,9 +93,9 @@ const Register = () => {
                             registerError && <p className="text-red-600">{registerError}</p>
                         }
                     </div>
-                    {
+                    {/* {
                         registerSuccess && <p className="text-green-600">{registerSuccess}</p>
-                    }
+                    } */}
                     <div className="form-control mt-6">
                         <button className="btn btn-primary">Register</button>
                     </div>
@@ -103,6 +106,7 @@ const Register = () => {
                 </div>
 
             </div>
+            <ToastContainer></ToastContainer>
         </div>
     );
 };

@@ -10,7 +10,7 @@ const Navbar = () => {
     const navLinks = <>
 
         <NavLink to='/' className={({ isActive }) => isActive ? 'py-1 px-3 rounded-sm  font-bold bg-green-400 text-white' : 'font-bold py-1 px-3 rounded-sm border-2 border-gray-200 '}>Home</NavLink>
-        <NavLink to='/update' className={({ isActive }) => isActive ? 'py-1 px-3 rounded-sm  font-bold bg-green-400 text-white' : 'font-bold py-1 px-3 rounded-sm border-2 border-gray-200 '}>Update Profile</NavLink>  
+        <NavLink to='/update' className={({ isActive }) => isActive ? 'py-1 px-3 rounded-sm  font-bold bg-green-400 text-white' : 'font-bold py-1 px-3 rounded-sm border-2 border-gray-200 '}>Update Profile</NavLink>
         {
             user && <NavLink to='/contact' className={({ isActive }) => isActive ? 'py-1 px-3 rounded-sm  font-bold bg-green-400 text-white' : 'font-bold py-1 px-3 rounded-sm border-2 border-gray-200 '}>Contact Us</NavLink>
         }
@@ -30,7 +30,10 @@ const Navbar = () => {
                         {navLinks}
                     </ul>
                 </div>
-                <a className=" text-xl font-bold"><span className="text-4xl font-bold">SH</span> assets LTD</a>
+                <div className="flex items-center">
+                    <img className="pr-2" src={'https://i.ibb.co/R3MGnQq/logo2.png'} alt="" />
+                    <span className=" text-xl font-bold text-blue-800">assets LTD</span></div>
+
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1 space-x-3">
@@ -44,13 +47,13 @@ const Navbar = () => {
                         user ?
                             <div className="dropdown dropdown-end">
                                 <div className="flex justify-around items-center">
-                                <label tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-                                    <div className="w-10 rounded-full">
-                                        <img title={user?.displayName || 'user name not found'} src={user?.photoURL || "https://i.ibb.co/V2JRhyS/mosque.jpg"} />
-                                    </div>
-                                </label>
+                                    <label tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                                        <div className="w-10 rounded-full">
+                                            <img title={user?.displayName || 'user name not found'} src={user?.photoURL || "https://i.ibb.co/V2JRhyS/mosque.jpg"} />
+                                        </div>
+                                    </label>
 
-                                <button onClick={logOut} className="btn bg-green-500 text-white font-semibold">Log Out</button>
+                                    <button onClick={logOut} className="btn bg-green-500 text-white font-semibold">Log Out</button>
                                 </div>
 
                             </div>

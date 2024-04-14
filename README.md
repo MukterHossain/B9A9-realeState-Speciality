@@ -12,11 +12,31 @@ Currently, two official plugins are available:
 
 # SH assets LTD
 
-[https://mukter-b9a8-book-review-page.netlify.app/details/2]
+[https://b9a9-realestate-speciality.firebaseapp.com/]
 
 ## features and characteristics 
- - Hospital
- - Mosque
- - Arts
+ - Viewable every section
+ - Readable all text
+ - Email and Password authentication 
+ - Google authentication 
+ - Github authentication 
+ - Dynamic Profile section
+ - Beautiful button
+
+ There are nine segment => 
+ - Hospitals
+ - Schools
+ - Religious facilities
+ - Transportation terminals
+ - Convention centers
+ - Art galleries
+ - Park
  - Museum
  - Science Museum
+
+
+
+ ## npm package name
+ - AOS Package
+ - React Hook form
+ - Animate.css

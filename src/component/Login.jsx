@@ -2,6 +2,8 @@ import { useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 import { useForm } from "react-hook-form"
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 
 
 const Login = () => {
@@ -16,18 +18,26 @@ const Login = () => {
         signIn(email, password)
         .then(result =>{
             if(result.user){
+                toast('You have login successfully')
                 navigate(location?.state || '/')
             }
-        });
+        })
+        .catch(() =>{
+            toast('Please valid email and password')
+        })
       }
  
     const handleSocietyLogin = societyContainer =>{
         societyContainer()
         .then(result =>{
             if(result.user){
+                toast('You have social login successfully')
                 navigate(location?.state || '/')
             }
             
+        })
+        .catch(() =>{
+            toast('Please valid email and password')
         })
     }
 
@@ -71,6 +81,7 @@ const Login = () => {
                     </div>
                 </div>
             </div>
+            <ToastContainer></ToastContainer>
         </div>
     );
 };

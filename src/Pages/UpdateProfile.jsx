@@ -7,6 +7,11 @@ import 'animate.css';
 const UpdateProfile = () => {
     const { user } = useContext(AuthContext);
     console.log(user)
+
+
+
+
+
     return (
 
         <div>
@@ -17,10 +22,10 @@ const UpdateProfile = () => {
                 <div className="text-center ">
                     <h1 className="text-5xl font-bold pb-8 animate__animated animate__fadeInDown animate__slow">Update Your Profile</h1>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className="w-full shadow-2xl rounded-2xl animate__fadeInLeft animate__slow pb-5">
-                        <div className=" rounded-full py-4">
-                            <img className="w-2/5 mx-auto rounded-lg animate__animated animate__zoomIn" src={user?.photoURL || "https://i.ibb.co/V2JRhyS/mosque.jpg"} />
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 ">
+                    <div className="w-full shadow-2xl rounded-2xl animate__fadeInLeft animate__slow pb-5 ">
+                        <div className=" rounded-full py-4 mt-5">
+                            <img className="w-2/5 rounded-2xl border-2 border-gray-200 p-2 mx-auto  animate__animated animate__zoomIn" src={user?.photoURL || "https://i.ibb.co/V2JRhyS/mosque.jpg"} />
                             <div className="ml-16 pt-5">
                                 <h2 className="text-xl font-medium animate__animated animate__slideInDown animate__slow">Name: {user?.displayName || 'User name not found'}</h2>
                                 <h2 className="text-xl font-medium animate__animated animate__slideInUp animate__slow">Email: {user?.email || 'User email not found'}</h2>
@@ -31,6 +36,13 @@ const UpdateProfile = () => {
                     <div className="animate__animated animate__fadeInRight animate__slow">
                         <div className="card shrink-0 mx-auto w-full shadow-2xl bg-base-100 pb-10 ">
                             <form className="card-body">
+                                <div className="form-control">
+                                    <label className="label">
+                                        <span className="label-text">Name</span>
+                                    </label>
+                                    <input type="text" name="name" placeholder="Name" className="input input-bordered" />
+
+                                </div>
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text">Email</span>
