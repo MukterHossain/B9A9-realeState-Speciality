@@ -5,10 +5,20 @@ import 'animate.css';
 
 
 const UpdateProfile = () => {
-    const { user } = useContext(AuthContext);
+    const { user, updateUserProfile,createUser } = useContext(AuthContext);
     console.log(user)
 
-
+        const handleForm = (email, password, name , image) =>{
+            createUser(email, password)
+            .then(() => {
+                updateUserProfile(name, image)
+                // toast('you have register successfully')
+                    .then(() => {
+                        // navigate('/')
+                    });
+                    
+            });
+        }
 
 
 
@@ -35,7 +45,7 @@ const UpdateProfile = () => {
                     </div>
                     <div className="animate__animated animate__fadeInRight animate__slow">
                         <div className="card shrink-0 mx-auto w-full shadow-2xl bg-base-100 pb-10 ">
-                            <form className="card-body">
+                            <form onSubmit={handleForm} className="card-body">
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text">Name</span>
@@ -54,7 +64,7 @@ const UpdateProfile = () => {
                                     <label className="label">
                                         <span className="label-text">Photo URL</span>
                                     </label>
-                                    <input type="text" name="photoURL" placeholder="photoURL" className="input input-bordered" />
+                                    <input type="text" name="image" placeholder="photoURL" className="input input-bordered" />
                                 </div>
 
                                 <div className="form-control mt-6 bg-yellow-200 py-2 rounded-lg">

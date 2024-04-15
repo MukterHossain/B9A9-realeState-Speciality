@@ -47,6 +47,7 @@ const Register = () => {
                     .then(() => {
                         navigate('/')
                     });
+                    
             });
     };
 

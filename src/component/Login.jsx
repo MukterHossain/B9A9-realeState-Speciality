@@ -7,7 +7,7 @@ import { ToastContainer, toast } from 'react-toastify';
 
 
 const Login = () => {
-    const {signIn, googleLogin,githubLogin} = useContext(AuthContext);
+    const {signIn, googleLogin, githubLogin} = useContext(AuthContext);
     const location = useLocation();
     const navigate = useNavigate();
     console.log('login' , location)
@@ -35,9 +35,6 @@ const Login = () => {
                 navigate(location?.state || '/')
             }
             
-        })
-        .catch(() =>{
-            toast('Please valid email and password')
         })
     }
 
